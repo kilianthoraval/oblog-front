@@ -11,18 +11,18 @@ router.get('/', (request, response) => {
     });
 });
 
-// router.get('/article/:id', (request, response) => {    
-//     let requestedArticle;
-//     for (article of articles) {
-//         if (article.name === request.params.id) {
-//             requestedArticle = article;
-//             break;
-//         }
-//     }
-//     response.render('article.ejs',{
-//         requestedArticle
-//     })
-// });
+router.get('/article/:id', (request, response) => {    
+    let requestedArticle;
+    for (let article of articles) {
+        if (article.id == request.params.id) {
+            requestedArticle = article;
+            break;
+        }
+    }
+    response.render('article.ejs',{
+        requestedArticle
+    })
+});
 
 
 // j'exporte mon objet router
