@@ -24,6 +24,17 @@ router.get('/article/:id', (request, response) => {
     })
 });
 
-
+router.get('/category/:category', (request, response) => {    
+    let requestedArticles = [];
+    for (let article of articles) {
+        if (article.category == request.params.category) {
+            requestedArticles.push(article);
+            
+        }
+    }
+    response.render('index.ejs',{
+        articles : requestedArticles
+    })
+});
 // j'exporte mon objet router
 module.exports = router;
